@@ -11,6 +11,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
@@ -23,6 +24,7 @@
             padding: 20px 40px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
         }
 
         /* Gradient Bar */
@@ -41,6 +43,23 @@
             50% { background: linear-gradient(90deg, #84fab0, #8fd3f4, #a18cd1); }
             100% { background: linear-gradient(90deg, #ff9a9e, #fad0c4, #ffdde1); }
         }
+
+        /* OTP Trigger Bar */
+        .otp-bar {
+            margin-top: 10px;
+            padding: 12px 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            animation: otpGradient 3s infinite linear;
+        }
+
+        @keyframes otpGradient {
+            0% { background: linear-gradient(90deg, #f8b195, #f67280, #c06c84); }
+            50% { background: linear-gradient(90deg, #6a11cb, #2575fc); }
+            100% { background: linear-gradient(90deg, #f8b195, #f67280, #c06c84); }
+        }
     </style>
 </head>
 <body>
@@ -50,6 +69,18 @@
             🎟️ Your Ticket ID is Finally Confirmed! ✅
         </div>
     </div>
+
+    <div id="otp-bar" class="otp-bar">
+        Your OTP: <span id="otp"></span>
+    </div>
+
+    <script>
+        function generateOTP() {
+            return Math.floor(1000 + Math.random() * 9000);
+        }
+
+        document.getElementById("otp").textContent = generateOTP();
+    </script>
 
 </body>
 </html>
